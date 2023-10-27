@@ -4,22 +4,26 @@ import { Menu, Button, MenuButton, MenuList, MenuOptionGroup, MenuItemOption, Me
 import {RiShoppingCartLine} from 'react-icons/ri'
 
 
+
 const NavBar = () => {
     return (
     <div>
         
-        <Flex>
-            <Box p='4' paddingTop={5}>
+        <Flex display={'flex'} alignItems={'center'} justifyContent={'space-between'} bg={'gray.700'}> 
+            <Box p='4' pt={5}>
                 <Stack spacing={4}>
-                    <Heading as='h1' size='xl' color={'blue'}>
-                        <p>Servicio TecNICO</p>
+                    <Heading as='h1' fontSize={'50px'} fontStyle={'italic'} color={'yellow'} fontFamily={'unset'}>
+                        <p>Servicio TecNICO </p>
                     </Heading>
                 </Stack>
             </Box>
+        
         <Spacer />
-            <Box paddingTop={5}>
+        
+            <Box >
+            
             <Menu closeOnSelect={false}>
-    <MenuButton as={Button} colorScheme='yellow' >
+    <MenuButton as={Button} bg={'yellow'}>
         Menu
     </MenuButton>
     
@@ -42,8 +46,8 @@ const NavBar = () => {
     
         <MenuOptionGroup title='Servicios' type='checkbox'>
             
-            <MenuItemOption value='email'>Reparacion Computadoras</MenuItemOption>
-            <MenuItemOption value='email'>Reparacon Celulares y Tablets</MenuItemOption>
+            <MenuItemOption value='email'>Reparacion de Laptos & Desktops</MenuItemOption>
+            <MenuItemOption value='email'>Reparacion de Celulares y Tablets</MenuItemOption>
             <MenuItemOption value='email'>Revisa el estado de tu reparacion</MenuItemOption>
 
         </MenuOptionGroup>
@@ -61,8 +65,10 @@ const NavBar = () => {
 </Menu>
 
             </Box>
+
         <Spacer />
-            <Box p='4' paddingTop={5}>
+            
+            <Box p='4' color={'whiteAlpha.900'} >
                 <CartWidget /> <RiShoppingCartLine size={35} />
             </Box>
 </Flex>
