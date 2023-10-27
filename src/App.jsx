@@ -1,11 +1,9 @@
-import React from 'react'
-import NavBar from './component/NavBar'
-import ItemListContainer from './component/ItemListContainer'
-import "./component/App.css" 
-
+import React from 'react';
+import NavBar from './component/NavBar';
+import ItemListContainer from './component/ItemListContainer';
 
 const App = () => {
-  return (
+  return ( 
     <div>
       <NavBar />
       <ItemListContainer greeting={"Bienvenido"} />
