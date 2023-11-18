@@ -1,13 +1,17 @@
 import React from 'react'
-import { Badge } from '@chakra-ui/react'
+import { Badge, Center, Flex } from '@chakra-ui/react';
+import {RiShoppingCartLine} from 'react-icons/ri';
 
 
 
 const CartWidget = () => {
     return (
+
         <div>
-            <h5>Carrito</h5>
-            <Badge colorScheme='green'>1</Badge>
+                <Flex display={'inline'} alignContent={'Center'} color={'whiteAlpha.900'} padding={2}>  
+                    <Badge colorScheme='green'>0</Badge>
+                    <RiShoppingCartLine size={35}/>
+                </Flex >
         </div>
     )
 }

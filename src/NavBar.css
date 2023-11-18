@@ -1,0 +1,30 @@
+/*.NavB {
+    background-image: url("/img/fondo.png");
+    background-size:cover;
+    background-repeat:no-repeat;
+}*/
+
+.Button {
+    font-size: 30px;
+    color: white;
+    padding-top: 18px;
+    padding-bottom: 1px;
+}
+
+.NavTittle {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    font-style: italic;
+    padding-top: 10px;
+    padding-bottom: 1px;
+}
+
+.Span {
+    color: orange;
+}
+
+.CartW {
+    padding-top: 10px;
+    padding-bottom: 1px;
+}
