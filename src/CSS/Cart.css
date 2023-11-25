@@ -1,0 +1,91 @@
+.itemCart {
+    padding-left: 20px;
+}
+
+.tittleCart {
+    font-size: 40px;
+    background-color: rgb(1, 82, 80);
+    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.txtUnit {
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.txtqty {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.txtTotal {
+    font-size: 35px;
+    color: rgb(226, 24, 2);
+    background-color: rgb(189, 187, 187);
+    font-weight: 600;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.buttonBuy {
+    background-color: rgb(158, 225, 50);
+    color: rgb(51, 52, 52);
+    font-weight: 800;
+    border-width: 2px;
+    border-color: rgb(213, 207, 207);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.buttonRemove {
+    background-color: rgb(190, 3, 3);
+    font-size: 10px;
+    text-align: right;
+    color: azure;
+    font-weight: 500;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    padding: 2px;
+    margin-bottom: 5px;
+    opacity: 0.5;
+    transition: 0.5s;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 160px;
+}
+
+.buttonRemove:hover {
+    opacity: 2;
+}
+
+.buttonEmpty {
+    background-color: rgb(190, 3, 3);
+    color: azure;
+    font-weight: 800;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    opacity: 0.5;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.buttonEmpty:hover {
+    opacity: 2;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}

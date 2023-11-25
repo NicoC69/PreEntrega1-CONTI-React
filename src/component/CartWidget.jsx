@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Badge, Center, Flex } from '@chakra-ui/react';
 import {RiShoppingCartLine} from 'react-icons/ri';
+import { CartContext } from './context/ShoppingCartContext';
 
 
 
 const CartWidget = () => {
-    return (
 
-        <div>
+    const { cantidadEnCart } = useContext(CartContext);
+
+    return (
+    <>
+        {cantidadEnCart() > 0 && (  
+            <div>
                 <Flex display={'inline'} alignContent={'Center'} color={'whiteAlpha.900'} padding={2}>  
-                    <Badge colorScheme='green'>0</Badge>
+                    <Badge colorScheme='green'>{cantidadEnCart()}</Badge>
                     <RiShoppingCartLine size={35}/>
                 </Flex >
-        </div>
+            </div>
+        )}
+    </>
     )
 }
 

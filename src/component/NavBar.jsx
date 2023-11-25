@@ -1,5 +1,5 @@
 import React from 'react'
-import '../NavBar.css';
+import '../CSS/NavBar.css';
 import { Nav, Container, NavDropdown, Row, Col, DropdownMenu, DropdownButton, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
@@ -63,9 +63,7 @@ const NavBar = () => {
                                         Perifericos
                                     </Link>
                                 </Dropdown.Item>
-                                
-                                    <NavDropdown.Divider />
-                                
+                                                                
                                 <Dropdown.Item>
                                     <Link to={'/Contacto'}>
                                         Contacto

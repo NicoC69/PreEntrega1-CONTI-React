@@ -1,42 +1,52 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
-import CartWidget from './CartWidget';
+import { CartContext } from './context/ShoppingCartContext';
 
 
-const ItemCount = () => {
 
-const [count, setCount, setCart ] = useState (0)
+const ItemCount = ({productos}) => {
 
-const addToCart = (ItemCount) => { 
-    setCart ({...CartWidget, count})
+const [buttonTxt, setButtonTxt] = useState("Agregar a carrito")
+
+    const { cart, addToCart, } = useContext(CartContext);
+    console.log(cart);
+
+    const [qty, setQty] = useState(1);
+    const isVisible = true
+
+    const handleRestar = () => {
+        qty > 1 && setQty(qty - 1)
     }
 
-const decrease = ()=>{
-    if (count > 0)
-    setCount (count -1)
-}
-
-const increase = ()=> {
-    if (count < 10) {
-        setCount (count +1)
+    const handleSumar = () => {
+        if (qty < productos.stock) 
+        {setQty(qty + 1);
+    } else {
+        setButtonTxt ("Finalizar")
     }
 }
+
+    const handleAgregar = () => {
+        addToCart (productos, qty)
+    }
+
+
 
     return (
         <div>
-            <Button variant="secondary" onClick={decrease}>
+            <Button variant="secondary" onClick={handleRestar}>
                 -            
             </Button>
         
-            <Badge bg='secondary' >{count}</Badge>      
+            <Badge bg='secondary' >{qty}</Badge>      
         
-            <Button variant="secondary" onClick={increase}>
+            <Button variant="secondary" onClick={handleSumar}>
                 +          
             </Button>
-
-            <Button variant="secondary" onClick={addToCart}>
-                Agregar al carrito            
+            
+            <Button variant="secondary" onClick={handleAgregar}>
+                {buttonTxt}            
             </Button>
         </div>
     );

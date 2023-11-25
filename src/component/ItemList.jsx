@@ -1,11 +1,12 @@
 import React from 'react'
 import Item from './Item'
+import '../CSS/ItemListContainer.css';
+
 
 const ItemList = ({productos}) => {
     return (
         <div>
-            <div>
-                <h5>Productos</h5>
+            <div className='Item'>
                 {productos.map((p)=> {
                         return (
                                 <Item 
