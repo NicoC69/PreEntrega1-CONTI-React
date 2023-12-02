@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Modal from 'react-bootstrap/Modal'
 import '../CSS/Contacto.css'
 import { collection, getFirestore, addDoc } from 'firebase/firestore';
 
@@ -12,6 +13,8 @@ const Contacto = () => {
   const [mensaje, setMensaje] = useState ('')
 
   const db = getFirestore();
+
+  const [lgShow, setLgShow] = useState(false);
 
 const handleSubmit = async (e)=>{
   e.preventDefault()
@@ -52,8 +55,20 @@ const handleSubmit = async (e)=>{
         <div>
           <textarea className='inputMsj' type="text" placeholder='Mensaje' onChange={(e)=> setMensaje(e.target.value)}></textarea>
         </div>
-          <button type='submit' className='buttonContacto'>Enviar</button>
-          <p className='txtContacto'>ID de confirmacion: {id}</p>
+          <button type='submit' className='buttonContacto' onClick={() => setLgShow(true)} >Enviar</button>
+          <Modal
+            size="lg"
+            show={lgShow}
+            onHide={() => setLgShow(false)}
+            aria-labelledby="example-modal-sizes-title-lg"
+            >
+            <Modal.Header closeButton>
+              <Modal.Title id="example-modal-sizes-title-lg">
+                ID de Confirmacion: 
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{id} (conserve este codigo)</Modal.Body>
+          </Modal>
         </form>        
       </div> 
     );

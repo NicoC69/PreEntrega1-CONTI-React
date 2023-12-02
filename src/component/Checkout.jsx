@@ -1,11 +1,14 @@
 import React, {useContext, useState} from 'react';
 import { CartContext } from './context/ShoppingCartContext';
+import Modal from 'react-bootstrap/Modal'
 import { collection, getFirestore, addDoc } from 'firebase/firestore';
 import '../CSS/Checkout.css';
 
 const Checkout = () => {
 
     const { precioTotal, cart, emptyCart } = useContext(CartContext);
+
+    const [lgShow, setLgShow] = useState(false);
 
     const handleEmpty = () => {
         emptyCart();
@@ -65,8 +68,21 @@ const Checkout = () => {
                 <h3 className='txtTotal'>Total a pagar: ${precioTotal()}</h3>
                 <p className='txt'>Id de la compra: {id}</p>
             <div className='containerB'>
-                <button type='submit' className='buttonPay'>Pagar</button>
+                <button type='submit' className='buttonPay' onClick={() => setLgShow(true)}>Pagar</button>
             </div>
+                <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+                >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                    ID de Confirmacion: 
+                    </Modal.Title>
+                </Modal.Header>
+                    <Modal.Body>{id} (conserve este codigo)</Modal.Body>
+                </Modal>
             
             </form>
 
