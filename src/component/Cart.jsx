@@ -19,7 +19,7 @@ const Cart = () => {
     return (
     <div className='bodyCart'>
         <h3 className='tittleCart'>Carrito</h3>
-        { 
+        {
             cart.map((prod) => (
             <div className='itemCart' key={prod.id}>
                 <h3>{prod.marca}</h3>

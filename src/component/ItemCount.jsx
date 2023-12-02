@@ -4,7 +4,6 @@ import Badge from 'react-bootstrap/Badge';
 import { CartContext } from './context/ShoppingCartContext';
 
 
-
 const ItemCount = ({productos}) => {
 
 const [buttonTxt, setButtonTxt] = useState("Agregar a carrito")
@@ -13,23 +12,23 @@ const [buttonTxt, setButtonTxt] = useState("Agregar a carrito")
     console.log(cart);
 
     const [qty, setQty] = useState(1);
-    const isVisible = true
 
     const handleRestar = () => {
         qty > 1 && setQty(qty - 1)
-    }
+    };
 
     const handleSumar = () => {
-        if (qty < productos.stock) 
-        {setQty(qty + 1);
+        if (qty < productos.stock) {
+            setQty(qty + 1);
     } else {
         setButtonTxt ("Finalizar")
-    }
-}
+        }
+    };
 
     const handleAgregar = () => {
-        addToCart (productos, qty)
-    }
+        addToCart (productos, qty);
+        setQty(1);
+    };
 
 
 

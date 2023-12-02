@@ -1,11 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
+import {doc, getDoc, getFirestore} from "firebase/firestore";
+import { useParams } from 'react-router-dom';
 
 
 
 const ItemDetailContainer= () =>{
 
-    const productos = [
+    const [producto, setProducto] = useState({});
+    const { id } = useParams();
+    
+    useEffect(() => {
+
+        const fetchItem = async () => {
+            try {
+                const db = getFirestore();
+                const oneItem = doc(db, "Productos", id)
+
+                const snapshot = await getDoc(oneItem);
+
+                if (snapshot.exists()) {
+                    const itemData = snapshot.data();
+                    const itemConId = {...itemData, id};
+                    setProducto(itemConId);
+                } else {
+                    console.log("Producto inexistente");
+                }
+            } catch (error) {
+                console.error("Error fetching data", error);
+            }
+        };
+
+        fetchItem();
+    }, [id]
+)
+
+        console.log(id)
+        console.log(producto)
+
+    return (
+        <div>
+            <ItemDetail producto={producto} />
+        </div>
+    )
+}
+export default ItemDetailContainer 
+
+
+
+    /*const productos = [
         {id:1,categoria:"Motherboard", marca:"ASUS", modelo:"ROG STRIX Z690-E INTEL", descripcion:"La placa base insignia ROG Strix Z690-E Gaming WiFi está diseñada con un suministro de energía mejorado y refrigeración optimizada para hacer frente a las demandas de los potentes procesadores Intel® Core™ Rocket Lake de 12.ª generación.", img:"https://m.media-amazon.com/images/I/81hQTzzTLrL.__AC_SX300_SY300_QL70_FMwebp_.jpg", precio:260000, stock:5},
         {id:2,categoria:"Motherboard", marca:"ASUS",modelo:"ROG STRIX B550-F AMD",descripcion:"ASUS ROG Strix B550-F Gaming AMD AM4 Zen 3 Ryzen 5000 & 3rd Gen Ryzen ATX Gaming Motherboard (PCIe 4.0, 2.5Gb LAN, BIOS Flashback, HDMI 2.1, Addressable Gen 2 RGB Header and Aura Sync)",img:"https://m.media-amazon.com/images/I/813WBwlPh+L._AC_SY300_SX300_.jpg",precio:165000,stock:5},
         {id:3,categoria:"Procesadores",marca:"INTEL",modelo:"i5",descripcion:"Rendimiento revolucionario y multitarea. Con altas velocidades de reloj y una nueva arquitectura innovadora",img:"https://m.media-amazon.com/images/I/61LzzuUNhKL.__AC_SX300_SY300_QL70_FMwebp_.jpg",precio:140000,stock:5},
@@ -17,63 +60,6 @@ const ItemDetailContainer= () =>{
         {id:9,categoria:"Monitores", marca:"SAMSUNG",modelo:"ViewFinity S65UA Series 34' Ultrawide", descripcion:"Sumérgete en juegos, películas o proyectos de diseño mientras te rodeas de la pantalla curva ultra ancha de 34 pulgadas",img:"https://m.media-amazon.com/images/I/715Z8wDEeEL._AC_SX679_.jpg", precio:550000, stock:5},
         {id:10,categoria:"Video", marca:"GIGABYTE",modelo:"GV-N710D3-2GL REV2.0 2GB RAM", descripcion:"Core Clock: 954 MHz. Low profile design, features Dual-link DVI-D/D-Sub/HDMI.", img:"https://m.media-amazon.com/images/I/71xuepwxseL._AC_SX679_.jpg", precio:45000, stock:5},
         {id:11,categoria:"Perifericos", marca:"LOGITECH",modelo:"MK270 Wireless", descripcion:"Logitech MK270 Wireless Keyboard And Mouse Combo For Windows, 2.4 GHz Wireless, Compact Mouse, 8 Multimedia And Shortcut Keys, For PC, Laptop", img:"https://m.media-amazon.com/images/I/61pUul1oDlL._AC_SX679_.jpg", precio:19000, stock:5}
-    ]
-    
-    const getProductos = new Promise((resolve, reject)=> {
-        if (productos.lenght > 0) {
-            setTimeout (()=> {
-                resolve(productos)
-            },2000)    
-        } else {
-            reject(new Error("No hay productos"))
-        }
-    })
-    
-    getProductos
-        .then((res)=>{
-        })
-        .catch((error)=> {
-            console.log(error)
-        })
-    
+    ]*/
 
 
-    return (
-        <div>
-            <ItemDetail productos={productos}/>
-        </div>
-    )
-}
-export default ItemDetailContainer 
-
-
-
-
-/*const [Productos, setProductos] = useState([]);
-    const {categoria} = useParams ()
-
-    useEffect(() => {
-        fetch('/src/component/Data.json')
-        .then((response) => response.json())
-        .then((data) =>{setProductos(data.Productos);})
-        .catch((error) => {console.error('Error al obtener datos:', error);});
-    }, [])
-    
-    console.log(Productos)
-
-    const productosFiltrados = Productos.find((producto) => producto.categoria === categoria);  
-    
-
-    return (
-        <div>
-            <p>Detalle</p>
-            <div>
-                {Productos.length > 0 &&
-                    Productos.map((producto)=> {
-                        return <ItemDetail key={producto.id} producto={producto} />
-                    })}
-            </div>
-        </div>
-    )
-    
-    */

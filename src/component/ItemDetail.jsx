@@ -5,43 +5,34 @@ import '../CSS/ItemDetail.css';
 import { Card } from 'react-bootstrap';
 
 
-const ItemDetail = ({productos}) => {
+const ItemDetail = ({producto}) => {
+    
     const { id } = useParams();
 
-    const productosFiltrados = productos.filter((producto) => producto.id == id)
+    console.log(producto)
+    console.log(id)
 
     return (        
         <>
         <h2 className='tittleItemD'>Detalles del Producto</h2>
             <div className='bodyID'>
-                {productosFiltrados.map((p)=> {
-                    return (
-                        <div key={p.id}>
-                        <Card style={{ width: '20rem' }} bg='dark' text='light'>
-                            <Card.Img className='img' variant='top' src={p.img}/>
+                        <div>
+                        <Card key={producto.id} style={{ width: '20rem' }} bg='dark' text='light'>
+                            <Card.Img className='img' variant='top' src={producto.img}/>
                             <Card.Body>
-                                <Card.Text>Categoria: {p.categoria}</Card.Text>
-                                <Card.Title>Marca: {p.marca}</Card.Title>
-                                <Card.Text>Descripcion: {p.descripcion}</Card.Text>
-                                <Card.Text>Precio: ${p.precio}</Card.Text>
-                                <Card.Text>Stock: {p.stock}</Card.Text>
-                                    <ItemCount productos={p}/>
+                                <Card.Text>Categoria: {producto.categoria}</Card.Text>
+                                <Card.Title>Marca: {producto.marca}</Card.Title>
+                                <Card.Text>Modelo: {producto.modelo}</Card.Text>
+                                <Card.Text>Descripcion: {producto.descripcion}</Card.Text>
+                                <Card.Text>Precio: ${producto.precio}</Card.Text>
+                                <Card.Text>Stock: {producto.stock}</Card.Text>
+                                    <ItemCount productos={producto}/>
                             </Card.Body>
                         </Card>
                         </div>
-                    )
-                })}
             </div>
         </>
     )
 }
 
 export default ItemDetail
-
-
-
-
-    //const filteredData = productos.filter((producto)=> producto.id == id)
-
-//{filteredData.map((p)=> {
-  //  return (

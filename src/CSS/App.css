@@ -1,7 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .bodyAPP {
     background-image: url("/img/fondo.png");
-    background-size:cover;
+    background-size: cover;
     background-repeat:no-repeat;
+    background-attachment: fixed;
     color: whitesmoke;
 }
 

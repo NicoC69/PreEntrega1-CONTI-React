@@ -1,6 +1,6 @@
 import React from 'react'
 import '../CSS/NavBar.css';
-import { Nav, Container, NavDropdown, Row, Col, DropdownMenu, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
@@ -17,11 +17,7 @@ const NavBar = () => {
                     </Col>
                     
                     <Col xs={5} md={5} lg={5}>
-                        <Dropdown className='Button' data-bs-theme="dark">
-                            <Dropdown.Toggle variant="secondary">
-                                MENU
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
+                        <DropdownButton className='Button' variant='secondary' title="MENU" data-bs-theme="dark">
                                 <Dropdown.Item>
                                     <Link to={`/categoria/Motherboard`}>
                                         Motherboard
@@ -69,8 +65,7 @@ const NavBar = () => {
                                         Contacto
                                     </Link>
                                 </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        </DropdownButton>
                     </Col>
                     
                     <Col className='CartW' xs={1} md={1} lg={1}>

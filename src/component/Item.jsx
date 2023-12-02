@@ -6,14 +6,16 @@ import '../CSS/Item.css';
 
 
 
-const Item = ({id, img, Categoria, Marca}) => {
+const Item = ({id, img, Categoria, Marca, Modelo}) => {
+    console.log(id)
     return (
         <div className='bodyI'>
-            <Card className='Card' style={{ width: '18rem' }} bg='dark' text='light'>
+            <Card key={id} className='Card' style={{ width: '20rem' }} bg='dark' text='light'>
                 <Card.Img className='img' variant='top' src={img}/>
                 <Card.Body>
                     <Card.Text>Categoria: {Categoria}</Card.Text>
                     <Card.Title>Marca: {Marca}</Card.Title>
+                    <Card.Title>Modelo: {Modelo}</Card.Title>
                     <Button variant="secondary">
                         <Link to={`/item/${id}`}>
                         Ver Detalle

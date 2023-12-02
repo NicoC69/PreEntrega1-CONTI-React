@@ -11,6 +11,7 @@ import CartWidget from './component/CartWidget';
 import ItemCount from './component/ItemCount';
 import { CartProvider } from './component/context/ShoppingCartContext';
 import Checkout from './component/Checkout';
+import ItemList from './component/ItemList';
 
 
 
@@ -24,7 +25,7 @@ const App = () => {
               <NavBar />
 
               <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<ItemListContainer />} />
                 <Route exact path="/contacto" element={<Contacto />} />
                 <Route exact path="/item/:id" element={<ItemDetailContainer />} />
                 <Route exact path='/Cart' element={<Cart />} />
