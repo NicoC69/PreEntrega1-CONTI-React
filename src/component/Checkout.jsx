@@ -66,7 +66,6 @@ const Checkout = () => {
                 <input className='inputCO' type="text" placeholder='Email' onChange={(e)=> setEmail(e.target.value)} />
 
                 <h3 className='txtTotal'>Total a pagar: ${precioTotal()}</h3>
-                <p className='txt'>Id de la compra: {id}</p>
             <div className='containerB'>
                 <button type='submit' className='buttonPay' onClick={() => setLgShow(true)}>Pagar</button>
             </div>

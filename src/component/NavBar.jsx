@@ -9,14 +9,14 @@ const NavBar = () => {
     return (
         <div className='NavB'>
             <Container fluid>
-                <Row>
-                    <Col xs={6} md={6} lg={6}>
+                <Row xs={2} sm={2} md={1} lg={1} xl={1}>
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <Link to={`/`}>
                             <h1 className='NavTittle'>Servicio Tec<span className='Span'>Nico</span></h1>
                         </Link>
                     </Col>
                     
-                    <Col xs={5} md={5} lg={5}>
+                    <Col xs={6} sm={6} md={5} lg={5} xl={5}>
                         <DropdownButton className='Button' variant='secondary' title="MENU" data-bs-theme="dark">
                             <Dropdown.Item>
                                 <Link to={`/categoria/Motherboard`}>
@@ -68,7 +68,7 @@ const NavBar = () => {
                         </DropdownButton>
                     </Col>
                     
-                    <Col className='CartW' xs={1} md={1} lg={1}>
+                    <Col className='CartW' xs={6} sm={6} md={1} lg={1} xl={1}>
                         <Link to={"/Cart"}>
                             <CartWidget />
                         </Link>

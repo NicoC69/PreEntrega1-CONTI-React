@@ -4,6 +4,8 @@ import '../CSS/ItemListContainer.css';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import {collection, getDocs, getFirestore, query, where} from "firebase/firestore";
+import { Row, Col } from 'react-bootstrap';
+
 
 const ItemListContainer = () => {
 
@@ -46,7 +48,7 @@ const ItemListContainer = () => {
     return (
         <div>
             <h2 className='tittleILC'>Productos</h2>
-            <ItemList productos={productos} categoria={categoria} />
+                <ItemList productos={productos} categoria={categoria} />
         </div>
     )
 }

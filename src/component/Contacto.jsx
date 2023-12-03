@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import '../CSS/Contacto.css'
 import { collection, getFirestore, addDoc } from 'firebase/firestore';
+import { Row, Col, Container, Form } from 'react-bootstrap';
 
 
 const Contacto = () => {
@@ -40,22 +41,34 @@ const handleSubmit = async (e)=>{
 
 
   return (
-    <div>
-      <h2 className='tittleContact'>Contacto</h2>
-        <form action="" onSubmit={handleSubmit}>
+<div>    
+  <h2 className='tittleContact'>Contacto</h2>
+  <Container fluid>  
+    <div className='row'>
+        <Col sm={12} md={12} lg={12} xl={12}>
+        <Form action="" onSubmit={handleSubmit}>
         <div>
-          <input className='inputContacto' type="text" placeholder='Nombre' onChange={(e)=> setNombre(e.target.value)} />
+          <Form.Group className='mb-3, inputContacto'>
+            <Form.Control type='text' placeholder='Nombre'onChange={(e)=> setNombre(e.target.value)}/>
+          </Form.Group>
         </div>
         <div>  
-          <input className='inputContacto' type="text" placeholder='Telefono' onChange={(e)=> setTelefono(e.target.value)} />
+          <Form.Group className='mb-3, inputContacto'>
+            <Form.Control type='text' placeholder='Telefono'onChange={(e)=> setTelefono(e.target.value)}/>
+          </Form.Group>       
         </div>
         <div>  
-          <input className='inputContacto' type="text" placeholder='Email' onChange={(e)=> setEmail(e.target.value)} />
+          <Form.Group className='mb-3, inputContacto'>
+            <Form.Control type='text' placeholder='Email'onChange={(e)=> setEmail(e.target.value)}/>
+          </Form.Group>
         </div>
-        <div>
-          <textarea className='inputMsj' type="text" placeholder='Mensaje' onChange={(e)=> setMensaje(e.target.value)}></textarea>
+        <div >
+          <Form.Group className="mb-3, inputMsj" controlId="exampleForm.ControlTextarea1">
+            <Form.Control as="textarea" placeholder='Mensaje' rows={10} />
+          </Form.Group>        
         </div>
           <button type='submit' className='buttonContacto' onClick={() => setLgShow(true)} >Enviar</button>
+          
           <Modal
             size="lg"
             show={lgShow}
@@ -69,10 +82,14 @@ const handleSubmit = async (e)=>{
             </Modal.Header>
             <Modal.Body>{id} (conserve este codigo)</Modal.Body>
           </Modal>
-        </form>        
+
+        </Form> 
+        </Col>   
       </div> 
-    );
-  };
+    </Container>
+  </div>
+  );
+};
 
 
 export default Contacto

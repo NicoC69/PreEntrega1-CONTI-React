@@ -18,8 +18,8 @@ import ItemList from './component/ItemList';
 const App = () => {
 
     return ( 
-        <div className='bodyAPP'>
-          
+
+        <div className='bodyAPP'>         
           <CartProvider>
             <BrowserRouter>
               <NavBar />
